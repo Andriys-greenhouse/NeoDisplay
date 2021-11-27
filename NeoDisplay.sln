@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeoDisplay.Android", "NeoDisplay.Android\NeoDisplay.Android.csproj", "{F7F7B097-133A-4312-882F-9872DBB9618F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeoDisplay", "NeoDisplay\NeoDisplay.csproj", "{B737AC74-2857-4058-8E68-EE796BF388F7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F7F7B097-133A-4312-882F-9872DBB9618F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7F7B097-133A-4312-882F-9872DBB9618F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7F7B097-133A-4312-882F-9872DBB9618F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F7F7B097-133A-4312-882F-9872DBB9618F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7F7B097-133A-4312-882F-9872DBB9618F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7F7B097-133A-4312-882F-9872DBB9618F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B737AC74-2857-4058-8E68-EE796BF388F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B737AC74-2857-4058-8E68-EE796BF388F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B737AC74-2857-4058-8E68-EE796BF388F7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B737AC74-2857-4058-8E68-EE796BF388F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B737AC74-2857-4058-8E68-EE796BF388F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B737AC74-2857-4058-8E68-EE796BF388F7}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6903202D-CCE8-4B80-9F3B-2C76EE298673}
+	EndGlobalSection
+EndGlobal
