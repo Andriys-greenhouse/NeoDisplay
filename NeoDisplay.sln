@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31911.196
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeoDisplay.Android", "NeoDisplay.Android\NeoDisplay.Android.csproj", "{F7F7B097-133A-4312-882F-9872DBB9618F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeoDisplay", "NeoDisplay\NeoDisplay.csproj", "{B737AC74-2857-4058-8E68-EE796BF388F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NeoDisplay", "NeoDisplay\NeoDisplay.csproj", "{B737AC74-2857-4058-8E68-EE796BF388F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleForTesting", "ConsoleForTesting\ConsoleForTesting.csproj", "{8A94E90E-44AD-4857-8720-E5331E5D7AD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,10 @@ Global
 		{B737AC74-2857-4058-8E68-EE796BF388F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B737AC74-2857-4058-8E68-EE796BF388F7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B737AC74-2857-4058-8E68-EE796BF388F7}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{8A94E90E-44AD-4857-8720-E5331E5D7AD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A94E90E-44AD-4857-8720-E5331E5D7AD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A94E90E-44AD-4857-8720-E5331E5D7AD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A94E90E-44AD-4857-8720-E5331E5D7AD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

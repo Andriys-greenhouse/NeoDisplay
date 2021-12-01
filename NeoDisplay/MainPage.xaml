@@ -1,24 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="NeoDisplay.MainPage">
+       xmlns:views="clr-namespace:NeoDisplay"
+             x:Class="NeoDisplay.MainPage"
+       BackgroundColor="Black"
+       FlyoutBackgroundColor="Black">
 
-    <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+    <!-- 
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Frame BackgroundColor="Black">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding Title}" TextColor="White"/>
+                    <Image Source="{Binding FlyoutIcon}" Margin="5" HeightRequest="45"/>
+                </StackLayout>
+            </Frame>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+    -->
+    
+    <Shell.FlyoutHeader>
+        <Frame BackgroundColor="Black">
+            <Label Text="Header" TextColor="White"/>
         </Frame>
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-    </StackLayout>
+    </Shell.FlyoutHeader>
+    <FlyoutItem Title="Hello" FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent x:Name="DataListShellContent" Title="Data list" FlyoutIcon="whiteControl.png" Icon="whiteIndex.png">
+            <views:DataListViewPage/>
+        </ShellContent>
+        <ShellContent x:Name="SettingsShellContent" Title="Settings" Icon="whiteControl.png">
+            <views:SettingsPage/>
+        </ShellContent>
+    </FlyoutItem>
 
-</ContentPage>
+
+</Shell>

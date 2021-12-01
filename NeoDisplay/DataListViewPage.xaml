@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NeoDisplay.DataListViewPage"
+             BackgroundColor="Black">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Reload data" IconImageSource="whiteReload.png" Clicked="ReloadDataButton_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="NeoListView" ItemsSource="{Binding .}" ItemTapped="NeoListView_ItemTapped" IsVisible="{Binding ListViewVisible, UpdateSourceEventName=UpdateDataListViewPage}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="#1C1C1C" CornerRadius="5">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Label Text="{Binding name_limited}" FontSize="Large" Grid.Column="0" Grid.Row="0" HorizontalOptions="StartAndExpand"/>
+                                <Label Text="{Binding is_potentially_hazardous_asteroid}" Grid.Column="1" Grid.Row="0" HorizontalOptions="End"/>
+                                <Label Text="{Binding EstimatedDiametrAverage}" Grid.Column="0" Grid.Row="1" HorizontalOptions="StartAndExpand"/>
+                                <Label Text="{Binding FirstObservation}" Grid.Column="1" Grid.Row="1" HorizontalOptions="End"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

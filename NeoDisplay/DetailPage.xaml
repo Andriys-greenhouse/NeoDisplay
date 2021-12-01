@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NeoDisplay.DetailPage"
+             BackgroundColor="Black">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Overall info" FontSize="Caption"/>
+            
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Link self"/>
+                <Label Text="{Binding LinkSelf}" TextColor ="#999999"/>
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal">
+                <Label Text="ID"/>
+                <Label Text="{Binding id}" TextColor ="#999999"/>
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Neo reference ID"/>
+                <Label Text="{Binding neo_reference_id}" TextColor ="#999999"/>
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Name"/>
+                <Label Text="{Binding name}" TextColor ="#999999"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Limited name"/>
+                <Label Text="{Binding name_limited}" TextColor ="#999999"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Designation"/>
+                <Label Text="{Binding designation}" TextColor ="#999999"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="NASA JPL URL"/>
+                <Label Text="{Binding nasa_jpl_url}" TextColor ="#999999"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Absolute magnitude height"/>
+                <Label Text="{Binding absolute_magnitude_h}" TextColor ="#999999"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Estimated maximal diameter"/>
+                <Label Text="{Binding EstimatedDiameterMax}" TextColor ="#999999"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Estimated minimal diameter"/>
+                <Label Text="{Binding EstimatedDiameterMin}" TextColor ="#999999"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Is potentially hazardous asteroid"/>
+                <Label Text="{Binding is_potentially_hazardous_asteroid}" TextColor ="#999999"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Is sentry object"/>
+                <Label Text="{Binding is_sentry_object}" TextColor ="#999999"/>
+            </StackLayout>
+
+            
+            
+            <Label Text="Orbital data" FontSize="Caption"/>
+
+            <StackLayout x:Name="OrbitalDataStackLayout">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Orbit ID"/>
+                    <Label Text="{Binding orbit_id}" TextColor ="#999999"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Orbit determination date"/>
+                    <Label Text="{Binding orbit_determination_date}" TextColor ="#999999"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="First observation date"/>
+                    <Label Text="{Binding first_observation_date}" TextColor ="#999999"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Last observation date"/>
+                    <Label Text="{Binding last_observation_date}" TextColor ="#999999"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Data arc in days"/>
+                    <Label Text="{Binding data_arc_in_days}" TextColor ="#999999"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Observations used"/>
+                    <Label Text="{Binding observations_used}" TextColor ="#999999"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Orbit uncertainty"/>
+                    <Label Text="{Binding orbit_uncertainty}" TextColor ="#999999"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Minimum orbit intersection"/>
+                    <Label Text="{Binding minimum_orbit_intersection}" TextColor ="#999999"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Jupiter tisserand invariant"/>
+                    <Label Text="{Binding jupiter_tisserand_invariant}" TextColor ="#999999"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Epoch osculation"/>
+                    <Label Text="{Binding epoch_osculation}" TextColor ="#999999"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Eccentricity"/>
+                    <Label Text="{Binding eccentricity}" TextColor ="#999999"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Semi major axis"/>
+                    <Label Text="{Binding semi_major_axis}" TextColor ="#999999"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Inclination"/>
+                    <Label Text="{Binding inclination}" TextColor ="#999999"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Ascending node longitude"/>
+                    <Label Text="{Binding ascending_node_longitude}" TextColor ="#999999"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Orbital period"/>
+                    <Label Text="{Binding orbital_period}" TextColor ="#999999"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Perihelion distance"/>
+                    <Label Text="{Binding perihelion_distance}" TextColor ="#999999"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Perihelion argument"/>
+                    <Label Text="{Binding perihelion_argument}" TextColor ="#999999"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Aphelion distance"/>
+                    <Label Text="{Binding aphelion_distance}" TextColor ="#999999"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Perihelion time"/>
+                    <Label Text="{Binding perihelion_time}" TextColor ="#999999"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Mean anomaly"/>
+                    <Label Text="{Binding mean_anomaly}" TextColor ="#999999"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Mean motion"/>
+                    <Label Text="{Binding mean_motion}" TextColor ="#999999"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Equinox"/>
+                    <Label Text="{Binding equinox}" TextColor ="#999999"/>
+                </StackLayout>
+            </StackLayout>
+
+
+            <Label Text="Orbit class" FontSize="Caption"/>
+
+            <StackLayout x:Name="OrbitClassStackLayout">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Type"/>
+                    <Label Text="{Binding orbit_class_type}" TextColor ="#999999"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Description"/>
+                    <Label Text="{Binding orbit_class_description}" TextColor ="#999999"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Range"/>
+                    <Label Text="{Binding orbit_class_range}" TextColor ="#999999"/>
+                </StackLayout>
+            </StackLayout>
+            <Button x:Name="ShowCloseApproachDataButton" Text="Close approach data" Clicked="ShowCloseApproachDataButton_Clicked" HorizontalOptions="CenterAndExpand"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NeoDisplay.CloseApproachDataPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Close approach data" FontSize="Caption"/>
+            <ListView x:Name="CloseApproachListView" ItemsSource="{Binding .}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="#1C1C1C" CornerRadius="5">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Label Text="Close approach date" Grid.Column="0" Grid.Row="0" HorizontalOptions="StartAndExpand"/>
+                                <Label Text="{Binding close_approach_date}" Grid.Column="1" Grid.Row="0" HorizontalOptions="End"/>
+                                <StackLayout Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Orientation="Vertical">
+                                    <Label Text="Close approach date full"/>
+                                    <Label Text="{Binding close_approach_date_full}"/>
+
+                                    <Label Text="Epoch date close approach"/>
+                                    <Label Text="{Binding epoch_date_close_approach}"/>
+
+                                    <Label Text="Relative velocity"/>
+                                    <Label Text="{Binding relative_velocity}"/>
+
+                                    <Label Text="Miss distance"/>
+                                    <Label Text="{Binding miss_distance}"/>
+                                </StackLayout>
+                                <Label Text="Orbiting body" Grid.Column="0" Grid.Row="2" HorizontalOptions="StartAndExpand"/>
+                                <Label Text="{Binding orbiting_body}" Grid.Column="1" Grid.Row="2" HorizontalOptions="End"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

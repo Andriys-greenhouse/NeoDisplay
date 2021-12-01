@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NeoDisplay.SettingsPage"
+             BackgroundColor="Black">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <Label Text="Order by" FontSize="Title" TextColor="White" Margin="8,4,0,0"/>
+            <Label Text="On Data list page, data are going to be oredered by..." Margin="8,0"/>
+            <StackLayout Orientation="Vertical" Margin="8">
+                <RadioButton Content="Limited name"/>
+                <RadioButton Content="Estimated diameter"/>
+                <RadioButton Content="Asteroids potential hazardousness"/>
+                <RadioButton Content="First observation date"/>
+            </StackLayout>
+            <Label Text="Order Trend" FontSize="Title" TextColor="White" Margin="8,4,0,0"/>
+            <StackLayout Orientation="Vertical" Margin="8">
+                <RadioButton Content="High to low"/>
+                <RadioButton Content="Low to high"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
