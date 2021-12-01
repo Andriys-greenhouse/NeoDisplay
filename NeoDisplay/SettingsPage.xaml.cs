@@ -14,6 +14,7 @@ namespace NeoDisplay
     {
         public SettingsPage()
         {
+            
             InitializeComponent();
         }
     }

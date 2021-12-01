@@ -18,9 +18,7 @@ namespace NeoDisplay
         public MainPage()
         {
             InitializeComponent();
-            DataListShellContent.BindingContext = Resources.
+            VersionLabel.Text = $"Version: {App.VersionOfApp}";
         }
-
-        
     }
 }

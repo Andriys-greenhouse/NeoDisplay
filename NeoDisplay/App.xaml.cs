@@ -6,8 +6,11 @@ namespace NeoDisplay
     public partial class App : Application
     {
         static bool Started { get; set; }
+        public static string VersionOfApp { get; set; }
         public App()
         {
+            VersionOfApp = "0.1";
+
             OnStart();
 
             InitializeComponent();

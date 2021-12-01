@@ -8,7 +8,7 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="NeoListView" ItemsSource="{Binding .}" ItemTapped="NeoListView_ItemTapped" IsVisible="{Binding ListViewVisible, UpdateSourceEventName=UpdateDataListViewPage}">
+            <ListView x:Name="NeoListView" ItemsSource="{Binding .}" ItemTapped="NeoListView_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Frame BackgroundColor="#1C1C1C" CornerRadius="5">

@@ -11787,6 +11787,21 @@ namespace NeoDisplay.Droid
 			// aapt resource value: 0x7F07008F
 			public const int tooltip_frame_light = 2131165327;
 			
+			// aapt resource value: 0x7F070090
+			public const int whiteControl = 2131165328;
+			
+			// aapt resource value: 0x7F070091
+			public const int whiteIndex = 2131165329;
+			
+			// aapt resource value: 0x7F070092
+			public const int whiteMenu = 2131165330;
+			
+			// aapt resource value: 0x7F070093
+			public const int whiteMeteor = 2131165331;
+			
+			// aapt resource value: 0x7F070094
+			public const int whiteReload = 2131165332;
+			
 			static Drawable()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
