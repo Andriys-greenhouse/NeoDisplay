@@ -23,7 +23,7 @@
                                 </Grid.RowDefinitions>
 
                                 <Label Text="{Binding name_limited}" FontSize="Large" Grid.Column="0" Grid.Row="0" HorizontalOptions="StartAndExpand"/>
-                                <Label Text="{Binding is_potentially_hazardous_asteroid}" Grid.Column="1" Grid.Row="0" HorizontalOptions="End"/>
+                                <Label Text="{Binding PotenciallyHazardous}" Grid.Column="1" Grid.Row="0" HorizontalOptions="End"/>
                                 <Label Text="{Binding EstimatedDiametrAverage}" Grid.Column="0" Grid.Row="1" HorizontalOptions="StartAndExpand"/>
                                 <Label Text="{Binding FirstObservation}" Grid.Column="1" Grid.Row="1" HorizontalOptions="End"/>
                             </Grid>

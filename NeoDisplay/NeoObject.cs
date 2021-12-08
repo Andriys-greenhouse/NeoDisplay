@@ -1,4 +1,6 @@
-﻿namespace NeoDisplay
+﻿using System;
+
+namespace NeoDisplay
 {
     public class RootNeoObject
     {
@@ -42,6 +44,7 @@
         public string EstimatedDiametrAverage { get { return ((estimated_diameter.meters.estimated_diameter_max + estimated_diameter.meters.estimated_diameter_min) / 2).ToString(); } }
         public string EstimatedDiameterMax { get { return estimated_diameter.meters.estimated_diameter_max.ToString(); } }
         public string EstimatedDiameterMin { get { return estimated_diameter.meters.estimated_diameter_min.ToString(); } }
+        public string PotenciallyHazardous { get { return is_potentially_hazardous_asteroid? "Potentially hazardous":"Not hazardous"; } }
     }
 
     public class Links1

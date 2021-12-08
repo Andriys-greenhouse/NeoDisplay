@@ -44,7 +44,7 @@ namespace NeoDisplay
 
         protected override void OnSleep()
         {
-            Resources["Data"] = DataListViewPage.CurentData;
+            //Resources["Data"] = DataListViewPage.CurentData;
         }
 
         protected override void OnResume()

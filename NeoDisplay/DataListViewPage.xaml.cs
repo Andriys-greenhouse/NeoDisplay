@@ -7,34 +7,35 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
 using System.Reflection;
+using System.ComponentModel;
 
 namespace NeoDisplay
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DataListViewPage : ContentPage
     {
-        public bool ListViewVisible { get; set; }
-        public static RootNeoObject CurentData { get; set; }
-        public static ObservableCollection<Near_Earth_Objects> NeoCollection { get; set; }
+        public RootNeoObject CurentData { get; set; }
+        ObservableCollection<Near_Earth_Objects> NeoCollection { get; set; }
 
         public delegate void UpdateDataListViewPageHandler();
-        public event UpdateDataListViewPageHandler UpdateDataListViewPage;
+        public event UpdateDataListViewPageHandler UpdateListview;
 
         public DataListViewPage()
         {
-            InitializeComponent();
+            BindingContext = this;
             NeoCollection = new ObservableCollection<Near_Earth_Objects>();
-            NeoListView.BindingContext = NeoCollection;
-            ReloadDataButton_Clicked(this, new EventArgs());
 
-            try
-            {
-                CurentData = JsonConvert.DeserializeObject<RootNeoObject>((string)Resources["Data"]);
-            }
-            catch(System.Collections.Generic.KeyNotFoundException e)
-            {
-                CurentData = new RootNeoObject { near_earth_objects = new Near_Earth_Objects[] { } };
-            }
+            //try
+            //{
+                InitializeComponent();
+                NeoListView.BindingContext = NeoCollection;
+
+                NeoListView.ItemsSource = NeoCollection;
+            //}
+            //catch (Exception e)
+            //{}
+
+            ReloadDataButton_Clicked(this, new EventArgs());
         }
 
         private async void NeoListView_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -69,6 +70,8 @@ namespace NeoDisplay
 
             CurentData = JsonConvert.DeserializeObject<RootNeoObject>(data);
             NeoCollection = new ObservableCollection<Near_Earth_Objects>(CurentData.near_earth_objects);
+            MainThread.BeginInvokeOnMainThread(() => { NeoCollection.Add(new Near_Earth_Objects()); });
+            MainThread.BeginInvokeOnMainThread(() => { NeoCollection.Remove(new Near_Earth_Objects()); });
         }
     }
 }
