@@ -10,14 +10,15 @@ using Xamarin.Forms.Xaml;
 namespace NeoDisplay
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DataListViewPage : ContentPage
+    public partial class DataListViewPageOriginal : ContentPage
     {
+        public RootNeoObject CurentData { get; set; }
         ObservableCollection<Near_Earth_Objects> NeoCollection { get; set; }
 
         public delegate void UpdateDataListViewPageHandler();
         public event UpdateDataListViewPageHandler UpdateListview;
 
-        public DataListViewPage()
+        public DataListViewPageOriginal()
         {
             BindingContext = this;
             NeoCollection = new ObservableCollection<Near_Earth_Objects>();
@@ -25,12 +26,12 @@ namespace NeoDisplay
             try
             {
                 InitializeComponent();
-                //NeoListView.BindingContext = NeoCollection;
+                NeoListView.BindingContext = NeoCollection;
             }
             catch (Exception e)
             { }
 
-            //ReloadDataButton_Clicked(this, new EventArgs());
+            ReloadDataButton_Clicked(this, new EventArgs());
         }
 
         private async void NeoListView_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -46,14 +47,12 @@ namespace NeoDisplay
             {
                 data = WebC.DownloadString(@"https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=IcRSAo8y9yxcuzf6bRSpQ1kPrpBGwqCpBPGaHlt2");
             }
-            /*
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(@"https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=IcRSAo8y9yxcuzf6bRSpQ1kPrpBGwqCpBPGaHlt2");
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             using (StreamReader sr = new StreamReader(response.GetResponseStream()))
             {
                 data = sr.ReadToEnd();
             }
-            */
 
             /*
             //following use block from https://www.youtube.com/watch?v=_4Usvzh9Gn0 and https://docs.microsoft.com/en-us/xamarin/xamarin-forms/data-cloud/data/files?tabs=windows
@@ -65,8 +64,8 @@ namespace NeoDisplay
             }
             */
 
-            App.CurentData = JsonConvert.DeserializeObject<RootNeoObject>(data);
-            NeoCollection = new ObservableCollection<Near_Earth_Objects>(App.CurentData.near_earth_objects);
+            CurentData = JsonConvert.DeserializeObject<RootNeoObject>(data);
+            NeoCollection = new ObservableCollection<Near_Earth_Objects>(CurentData.near_earth_objects);
             MainThread.BeginInvokeOnMainThread(() => { NeoCollection.Add(new Near_Earth_Objects()); });
             MainThread.BeginInvokeOnMainThread(() => { NeoCollection.Remove(new Near_Earth_Objects()); });
         }

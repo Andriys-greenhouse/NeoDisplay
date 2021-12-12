@@ -1,11 +1,17 @@
-﻿using Xamarin.Forms;
-using System;
+﻿using System;
+using System.IO;
+using Xamarin.Essentials;
+using Xamarin.Forms;
+using System.Reflection;
+using Newtonsoft.Json;
+using System.Collections.ObjectModel;
 
 namespace NeoDisplay
 {
     public partial class App : Application
     {
-        static bool Started { get; set; }
+        public static RootNeoObject CurentData { get; set; }
+        public static ObservableCollection<bool> Settings { get; set; }
         public static string VersionOfApp { get; set; }
         public App()
         {
@@ -18,33 +24,45 @@ namespace NeoDisplay
             MainPage = new MainPage();
         }
 
-        protected override void OnStart()
+        protected async override void OnStart()
         {
-            if (Resources.ContainsKey("Started"))
-            {
-                Started = (bool)Resources["Started"];
-            }
-            else { Started = false; }
-
-            if(!Started)
+            if (!Resources.ContainsKey("FirstStarted"))
             {
                 Resources.Add("FirstStarted", DateTime.Now);
                 Resources.Add("LastStarted", DateTime.Now);
 
-                Resources.Add("Data", "");
+                await SecureStorage.SetAsync("Data", "{ null }");
+                await SecureStorage.SetAsync("Settings", "{ null }");
             }
-            else { Resources["LastStarted"] = DateTime.Now; }
-
-            if (!Resources.ContainsKey("Started"))
+            else
             {
-                Resources.Add("Started", true);
+                Resources["LastStarted"] = DateTime.Now;
+
+                var assembly = IntrospectionExtensions.GetTypeInfo(typeof(DataListViewPage)).Assembly;
+                Stream stream = assembly.GetManifestResourceStream("NeoDisplay.NeoTestData.json");
+                using (StreamReader sr = new StreamReader(stream))
+                {
+                    await SecureStorage.SetAsync("Data", sr.ReadToEnd());
+                }
+
+                try 
+                {
+                    Settings = JsonConvert.DeserializeObject<ObservableCollection<bool>>(await SecureStorage.GetAsync("Settings"));
+                }
+                catch (Exception e)
+                {
+                    Settings = new ObservableCollection<bool>() { true, false, false, false, true, false };
+                }
+
+                Settings = new ObservableCollection<bool>() { true, false, false, false, true, false };
+
             }
-            else { Resources["Started"] = true; }
         }
 
-        protected override void OnSleep()
+        protected async override void OnSleep()
         {
-            //Resources["Data"] = DataListViewPage.CurentData;
+            await SecureStorage.SetAsync("Data", JsonConvert.SerializeObject(CurentData));
+            await SecureStorage.SetAsync("Settings", JsonConvert.SerializeObject(SettingsPage.Settings));
         }
 
         protected override void OnResume()
