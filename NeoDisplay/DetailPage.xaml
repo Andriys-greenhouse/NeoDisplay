@@ -4,8 +4,9 @@
              x:Class="NeoDisplay.DetailPage"
              BackgroundColor="Black">
     <ContentPage.Content>
+        <ScrollView>
         <StackLayout>
-            <Label Text="Overall info" FontSize="Caption"/>
+            <Label Text="Overall info" FontSize="Large"/>
             
             <StackLayout Orientation="Horizontal">
                 <Label Text="Link self"/>
@@ -69,7 +70,7 @@
 
             
             
-            <Label Text="Orbital data" FontSize="Caption"/>
+            <Label Text="Orbital data" FontSize="Large"/>
 
             <StackLayout x:Name="OrbitalDataStackLayout">
                 <StackLayout Orientation="Horizontal">
@@ -184,7 +185,7 @@
             </StackLayout>
 
 
-            <Label Text="Orbit class" FontSize="Caption"/>
+            <Label Text="Orbit class" FontSize="Large"/>
 
             <StackLayout x:Name="OrbitClassStackLayout">
                 <StackLayout Orientation="Horizontal">
@@ -204,5 +205,6 @@
             </StackLayout>
             <Button x:Name="ShowCloseApproachDataButton" Text="Close approach data" Clicked="ShowCloseApproachDataButton_Clicked" HorizontalOptions="CenterAndExpand"/>
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

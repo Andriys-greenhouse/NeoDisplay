@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Collections.ObjectModel;
 
 namespace NeoDisplay
 {
@@ -23,7 +24,7 @@ namespace NeoDisplay
 
         private async void ShowCloseApproachDataButton_Clicked(object sender, EventArgs e)
         {
-            CloseApproachDataPage.ApproachDataToDisplay = ObjectToDisplay.close_approach_data;
+            CloseApproachDataPage.ApproachDataToDisplay = new ObservableCollection<Close_Approach_Data>(ObjectToDisplay.close_approach_data);
             await Navigation.PushAsync(new CloseApproachDataPage());
         }
     }

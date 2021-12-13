@@ -2,10 +2,10 @@
 using System;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Net;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Reflection;
 
 namespace NeoDisplay
 {
@@ -27,11 +27,14 @@ namespace NeoDisplay
             {
                 InitializeComponent();
                 NeoListView.BindingContext = NeoCollection;
+                ReloadDataButton_Clicked(this, new EventArgs());
             }
             catch (Exception e)
-            { }
+            {
+                throw new ArgumentException("My own exception");
+            }
 
-            ReloadDataButton_Clicked(this, new EventArgs());
+
         }
 
         private async void NeoListView_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -43,18 +46,27 @@ namespace NeoDisplay
         private async void ReloadDataButton_Clicked(object sender, EventArgs e)
         {
             string data = "";
-            using (WebClient WebC = new WebClient())
-            {
-                data = WebC.DownloadString(@"https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=IcRSAo8y9yxcuzf6bRSpQ1kPrpBGwqCpBPGaHlt2");
-            }
+            /*
+                        try
+                        {
+                            using (HttpClient HttpC = new HttpClient())
+                            {
+                                data = await HttpC.GetStringAsync(@"https://www.ssps.cz/");
+                            }
+                        }
+                        catch(Exception g)
+                        {
+                            throw new ArgumentException("My own exception");
+                        }
+                        */
+            /*
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(@"https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=IcRSAo8y9yxcuzf6bRSpQ1kPrpBGwqCpBPGaHlt2");
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             using (StreamReader sr = new StreamReader(response.GetResponseStream()))
             {
                 data = sr.ReadToEnd();
             }
-
-            /*
+            */
             //following use block from https://www.youtube.com/watch?v=_4Usvzh9Gn0 and https://docs.microsoft.com/en-us/xamarin/xamarin-forms/data-cloud/data/files?tabs=windows
             var assembly = IntrospectionExtensions.GetTypeInfo(typeof(DataListViewPage)).Assembly;
             Stream stream = assembly.GetManifestResourceStream("NeoDisplay.NeoTestData.json");
@@ -62,7 +74,6 @@ namespace NeoDisplay
             {
                 data = sr.ReadToEnd();
             }
-            */
 
             CurentData = JsonConvert.DeserializeObject<RootNeoObject>(data);
             NeoCollection = new ObservableCollection<Near_Earth_Objects>(CurentData.near_earth_objects);

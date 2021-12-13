@@ -1,14 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="NeoDisplay.CloseApproachDataPage">
+             x:Class="NeoDisplay.CloseApproachDataPage"
+             BackgroundColor="Black">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Close approach data" FontSize="Caption"/>
-            <ListView x:Name="CloseApproachListView" ItemsSource="{Binding .}">
+            <Label Text="Close approach data" FontSize="Large"/>
+            <ListView x:Name="CloseApproachListView" RowHeight="90">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Frame BackgroundColor="#1C1C1C" CornerRadius="5">
+                        <ViewCell>
+                            <ViewCell.View>
+                            <!--<Frame BackgroundColor="#1C1C1C" CornerRadius="5">-->
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
@@ -38,7 +41,9 @@
                                 <Label Text="Orbiting body" Grid.Column="0" Grid.Row="2" HorizontalOptions="StartAndExpand"/>
                                 <Label Text="{Binding orbiting_body}" Grid.Column="1" Grid.Row="2" HorizontalOptions="End"/>
                             </Grid>
-                        </Frame>
+                            <!--</Frame>-->
+                            </ViewCell.View>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

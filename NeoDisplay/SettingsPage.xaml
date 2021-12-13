@@ -8,15 +8,15 @@
             <Label Text="Order by" FontSize="Title" TextColor="White" Margin="8,4,0,0"/>
             <Label Text="On Data list page, data are going to be oredered by..." Margin="8,0"/>
             <StackLayout x:Name="OrderByStack" RadioButtonGroup.GroupName="GroupOrderBy" Orientation="Vertical" Margin="8">
-                <RadioButton Content="Limited name" IsChecked="{Binding Settings[0]}"/>
-                <RadioButton Content="Estimated diameter" IsChecked="{Binding Settings[1]}"/>
-                <RadioButton Content="Asteroids potential hazardousness" IsChecked="{Binding Settings[2]}"/>
-                <RadioButton Content="First observation date" IsChecked="{Binding Settings[3]}"/>
+                <RadioButton Content="Limited name" IsChecked="{Binding SettingsConnector[0]}"/>
+                <RadioButton Content="Estimated diameter" IsChecked="{Binding SettingsConnector[1]}"/>
+                <RadioButton Content="Asteroids potential hazardousness" IsChecked="{Binding SettingsConnector[2]}"/>
+                <RadioButton Content="First observation date" IsChecked="{Binding SettingsConnector[3]}"/>
             </StackLayout>
             <Label Text="Order Trend" FontSize="Title" TextColor="White" Margin="8,4,0,0"/>
             <StackLayout Orientation="Vertical" Margin="8">
-                <RadioButton Content="High to low" IsChecked="{Binding Settings[4]}"/>
-                <RadioButton Content="Low to high" IsChecked="{Binding Settings[5]}"/>
+                <RadioButton Content="High to low" IsChecked="{Binding SettingsConnector[4]}"/>
+                <RadioButton Content="Low to high" IsChecked="{Binding SettingsConnector[5]}"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

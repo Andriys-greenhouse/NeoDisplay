@@ -13,11 +13,18 @@ namespace NeoDisplay
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SettingsPage : ContentPage
     {
-        public static ObservableCollection<bool> Settings;
+        public ObservableCollection<bool> SettingsConnector
+        {
+            get { return App.Settings; }
+            set 
+            { 
+                App.Settings = value;
+                App.OrderNeoCollection();
+            }
+        }
         public SettingsPage()
         {
             InitializeComponent();
-            Settings = App.Settings;
             BindingContext = this;
         }
     }

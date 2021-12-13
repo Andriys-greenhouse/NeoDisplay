@@ -8,31 +8,33 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <!--
-            <ListView x:Name="NeoListView" ItemsSource="{Binding .}" ItemTapped="NeoListView_ItemTapped">
+            <ListView x:Name="NeoListView"  ItemTapped="NeoListView_ItemTapped" RowHeight="68"> <!-- ItemsSource="{Binding NeoCollectionConnector}"-->
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Frame BackgroundColor="#1C1C1C" CornerRadius="5">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="*"/>
-                                </Grid.RowDefinitions>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <!--<Frame BackgroundColor="#1C1C1C" CornerRadius="5">-->
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
 
-                                <Label Text="{Binding name_limited}" FontSize="Large" Grid.Column="0" Grid.Row="0" HorizontalOptions="StartAndExpand"/>
-                                <Label Text="{Binding PotenciallyHazardous}" Grid.Column="1" Grid.Row="0" HorizontalOptions="End"/>
-                                <Label Text="{Binding EstimatedDiametrAverage}" Grid.Column="0" Grid.Row="1" HorizontalOptions="StartAndExpand"/>
-                                <Label Text="{Binding FirstObservation}" Grid.Column="1" Grid.Row="1" HorizontalOptions="End"/>
-                            </Grid>
-                        </Frame>
+                                            <Label Text="{Binding name_limited}" FontSize="Large" Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" TextColor="White" HeightRequest="20"/>
+                                            <Label Text="{Binding PotenciallyHazardous}" Grid.Column="1" Grid.Row="0" HorizontalOptions="End"/>
+                                            <Label Text="{Binding EstimatedDiametrAverage}" Grid.Column="0" Grid.Row="1" HorizontalOptions="StartAndExpand"/>
+                                            <Label Text="{Binding FirstObservation}" Grid.Column="1" Grid.Row="1" HorizontalOptions="End"/>
+                                        </Grid>
+                                <!--</Frame>-->
+                            </ViewCell.View>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            -->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
