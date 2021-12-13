@@ -6,6 +6,7 @@ using System.Reflection;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Net.Http;
+using Xamarin.Essentials;
 
 namespace NeoDisplay
 {
@@ -40,9 +41,17 @@ namespace NeoDisplay
         private async void ReloadDataButton_Clicked(object sender, EventArgs e)
         {
             string data = "";
-            using (HttpClient HttpC = new HttpClient())
+            if (Connectivity.NetworkAccess == NetworkAccess.Internet)
             {
-                data = await HttpC.GetStringAsync(@"https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=IcRSAo8y9yxcuzf6bRSpQ1kPrpBGwqCpBPGaHlt2");
+                using (HttpClient HttpC = new HttpClient())
+                {
+                    data = await HttpC.GetStringAsync(@"https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=IcRSAo8y9yxcuzf6bRSpQ1kPrpBGwqCpBPGaHlt2");
+                }
+            }
+            else
+            {
+                await DisplayAlert("Offline", "There is no connection at the moment, data can't be reloaded", "OK");
+                return;
             }
             /*
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(@"https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=IcRSAo8y9yxcuzf6bRSpQ1kPrpBGwqCpBPGaHlt2");

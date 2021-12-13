@@ -103,6 +103,9 @@ namespace NeoDisplay
                 else if (Settings[2]) { NeoCollection = new ObservableCollection<Near_Earth_Objects>(NeoCollection.OrderBy(x => x.is_potentially_hazardous_asteroid)); }
                 else if (Settings[3]) { NeoCollection = new ObservableCollection<Near_Earth_Objects>(NeoCollection.OrderBy(x => DateTime.ParseExact(x.orbital_data.first_observation_date, "yyyy-MM-dd", CultureInfo.CreateSpecificCulture("en-US")))); }
             }
+
+            NeoCollection.Add(new Near_Earth_Objects());
+            NeoCollection.Remove(new Near_Earth_Objects());
         }
     }
 }

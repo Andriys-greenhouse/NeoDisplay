@@ -6,7 +6,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Close approach data" FontSize="Large"/>
-            <ListView x:Name="CloseApproachListView" RowHeight="90">
+            <ListView x:Name="CloseApproachListView" RowHeight="200">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -20,26 +20,28 @@
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="*"/>
-                                    <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
                                 </Grid.RowDefinitions>
 
-                                <Label Text="Close approach date" Grid.Column="0" Grid.Row="0" HorizontalOptions="StartAndExpand"/>
-                                <Label Text="{Binding close_approach_date}" Grid.Column="1" Grid.Row="0" HorizontalOptions="End"/>
-                                <StackLayout Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Orientation="Vertical">
-                                    <Label Text="Close approach date full"/>
-                                    <Label Text="{Binding close_approach_date_full}"/>
+                                <Label Text="Close approach date" Grid.Column="0" Grid.Row="0" HorizontalOptions="StartAndExpand" TextColor="White"/>
+                                    <Label Text="{Binding close_approach_date}" Grid.Column="1" Grid.Row="0" HorizontalOptions="End"/>
 
-                                    <Label Text="Epoch date close approach"/>
-                                    <Label Text="{Binding epoch_date_close_approach}"/>
+                                    <Label Text="Close approach date full" Grid.Column="0" Grid.Row="1"/>
+                                    <Label Text="{Binding close_approach_date_full}" Grid.Column="1" Grid.Row="1" HorizontalOptions="End"/>
 
-                                    <Label Text="Relative velocity"/>
-                                    <Label Text="{Binding relative_velocity}"/>
+                                    <Label Text="Epoch date close approach" Grid.Column="0" Grid.Row="2"/>
+                                    <Label Text="{Binding epoch_date_close_approach}" Grid.Column="1" Grid.Row="2" HorizontalOptions="End"/>
 
-                                    <Label Text="Miss distance"/>
-                                    <Label Text="{Binding miss_distance}"/>
-                                </StackLayout>
-                                <Label Text="Orbiting body" Grid.Column="0" Grid.Row="2" HorizontalOptions="StartAndExpand"/>
-                                <Label Text="{Binding orbiting_body}" Grid.Column="1" Grid.Row="2" HorizontalOptions="End"/>
+                                    <Label Text="Relative velocity" Grid.Column="0" Grid.Row="3"/>
+                                    <Label Text="{Binding relative_velocity}" Grid.Column="1" Grid.Row="3" HorizontalOptions="End"/>
+
+                                    <Label Text="Miss distance" Grid.Column="0" Grid.Row="4"/>
+                                    <Label Text="{Binding miss_distance}" Grid.Column="1" Grid.Row="4" HorizontalOptions="End"/>
+                                    <Label Text="Orbiting body" Grid.Column="0" Grid.Row="5" HorizontalOptions="StartAndExpand"/>
+                                <Label Text="{Binding orbiting_body}" Grid.Column="1" Grid.Row="5" HorizontalOptions="End"/>
                             </Grid>
                             <!--</Frame>-->
                             </ViewCell.View>
