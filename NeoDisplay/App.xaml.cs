@@ -17,6 +17,10 @@ namespace NeoDisplay
         public static ObservableCollection<Near_Earth_Objects> NeoCollection { get; set; }
         public static ObservableCollection<bool> Settings { get; set; }
         public static string VersionOfApp { get; set; }
+
+        public delegate void UpdateDataListViewPageHandler();
+        public event UpdateDataListViewPageHandler UpdateListview;
+
         public App()
         {
             VersionOfApp = "0.1";
@@ -87,25 +91,23 @@ namespace NeoDisplay
         {
         }
 
-        public static void OrderNeoCollection()
+        public void OrderNeoCollection()
         {
             if (Settings[5])
             {
                 if (Settings[0]) { NeoCollection = new ObservableCollection<Near_Earth_Objects>(NeoCollection.OrderByDescending(x => x.name_limited)); }
-                else if (Settings[1]) { NeoCollection = new ObservableCollection<Near_Earth_Objects>(NeoCollection.OrderByDescending(x => double.Parse(x.EstimatedDiametrAverage))); }
-                else if (Settings[2]) { { NeoCollection = new ObservableCollection<Near_Earth_Objects>(NeoCollection.OrderByDescending(x => x.is_potentially_hazardous_asteroid)); } }
-                else if (Settings[3]) { NeoCollection = new ObservableCollection<Near_Earth_Objects>(NeoCollection.OrderByDescending(x => DateTime.ParseExact(x.orbital_data.first_observation_date,"yyyy-MM-dd", CultureInfo.CurrentCulture))); }
+                else if (Settings[1]) { NeoCollection = new ObservableCollection<Near_Earth_Objects>(NeoCollection.OrderBy(x => double.Parse(x.EstimatedDiametrAverage))); }
+                else if (Settings[2]) { { NeoCollection = new ObservableCollection<Near_Earth_Objects>(NeoCollection.OrderBy(x => x.is_potentially_hazardous_asteroid)); } }
+                else if (Settings[3]) { NeoCollection = new ObservableCollection<Near_Earth_Objects>(NeoCollection.OrderBy(x => DateTime.ParseExact(x.orbital_data.first_observation_date,"yyyy-MM-dd", CultureInfo.CurrentCulture))); }
             }
             else if (Settings[4])
             {
                 if (Settings[0]) { NeoCollection = new ObservableCollection<Near_Earth_Objects>(NeoCollection.OrderBy(x => x.name_limited)); }
-                else if (Settings[1]) { NeoCollection = new ObservableCollection<Near_Earth_Objects>(NeoCollection.OrderBy(x => double.Parse(x.EstimatedDiametrAverage))); }
-                else if (Settings[2]) { NeoCollection = new ObservableCollection<Near_Earth_Objects>(NeoCollection.OrderBy(x => x.is_potentially_hazardous_asteroid)); }
-                else if (Settings[3]) { NeoCollection = new ObservableCollection<Near_Earth_Objects>(NeoCollection.OrderBy(x => DateTime.ParseExact(x.orbital_data.first_observation_date, "yyyy-MM-dd", CultureInfo.CreateSpecificCulture("en-US")))); }
+                else if (Settings[1]) { NeoCollection = new ObservableCollection<Near_Earth_Objects>(NeoCollection.OrderByDescending(x => double.Parse(x.EstimatedDiametrAverage))); }
+                else if (Settings[2]) { NeoCollection = new ObservableCollection<Near_Earth_Objects>(NeoCollection.OrderByDescending(x => x.is_potentially_hazardous_asteroid)); }
+                else if (Settings[3]) { NeoCollection = new ObservableCollection<Near_Earth_Objects>(NeoCollection.OrderByDescending(x => DateTime.ParseExact(x.orbital_data.first_observation_date, "yyyy-MM-dd", CultureInfo.CreateSpecificCulture("en-US")))); }
             }
-
-            NeoCollection.Add(new Near_Earth_Objects());
-            NeoCollection.Remove(new Near_Earth_Objects());
+            UpdateListview.Invoke();
         }
     }
 }

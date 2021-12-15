@@ -16,11 +16,7 @@ namespace NeoDisplay
         public ObservableCollection<bool> SettingsConnector
         {
             get { return App.Settings; }
-            set 
-            { 
-                App.Settings = value;
-                App.OrderNeoCollection();
-            }
+            set { App.Settings = value; }
         }
         public SettingsPage()
         {

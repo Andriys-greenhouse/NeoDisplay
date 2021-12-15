@@ -19,15 +19,13 @@ namespace NeoDisplay
             set { App.NeoCollection = value; }
         }
 
-        public delegate void UpdateDataListViewPageHandler();
-        public event UpdateDataListViewPageHandler UpdateListview;
-
         public DataListViewPage()
         {
             BindingContext = this;
 
             InitializeComponent();
             NeoListView.ItemsSource = NeoCollectionConnector;
+            (App.Current as App).UpdateListview += ReassignDataListviewItemSource;
 
             ReloadDataButton_Clicked(this, new EventArgs());
         }
@@ -73,7 +71,12 @@ namespace NeoDisplay
 
             App.CurentData = JsonConvert.DeserializeObject<RootNeoObject>(data);
             App.NeoCollection = new ObservableCollection<Near_Earth_Objects>(App.CurentData.near_earth_objects);
-            App.OrderNeoCollection();
+            (App.Current as App).OrderNeoCollection();
+        }
+
+        public void ReassignDataListviewItemSource()
+        {
+            NeoListView.ItemsSource = NeoCollectionConnector;
         }
     }
 }
