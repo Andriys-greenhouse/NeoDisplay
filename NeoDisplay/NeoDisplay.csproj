@@ -11,6 +11,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DataListViewPageOriginal.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="DataListViewPageOriginal.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="NeoTestData.json" />
   </ItemGroup>
 
@@ -25,19 +33,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="DataListViewPageOriginal.xaml.cs">
-      <DependentUpon>DataListViewPageOriginal.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
     <EmbeddedResource Update="CloseApproachDataPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="DataListViewPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="DataListViewPageOriginal.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="DetailPage.xaml">

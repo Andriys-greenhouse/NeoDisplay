@@ -92,7 +92,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\grayMeteor.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NeoDisplay\NeoDisplay.csproj">
       <Project>{B6F649C4-DEB4-411C-899D-F43E3A898283}</Project>
